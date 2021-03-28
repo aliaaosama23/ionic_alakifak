@@ -1,0 +1,29 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar ">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0"> {{notificationsNumber}} </ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register">
+  <h1>  اختيار وسيلة الدفع </h1>
+
+  <ion-item [disabled]="paymentMethod.enabled==false" detail *ngFor="let paymentMethod of PaymentMethods" (click)="PaymenyOption(paymentMethod.id,paymentMethod.title,paymentMethod.method_title)">
+    <!-- <img src="../../../assets/images/visa.png"> -->
+    <ion-label>
+      <h2>  {{paymentMethod.title}}  </h2>
+      <p style="font-size: 10px;white-space: normal;"> {{paymentMethod.description}}</p>
+    </ion-label>
+    
+  </ion-item>
+
+</ion-content>

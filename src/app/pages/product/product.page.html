@@ -1,0 +1,117 @@
+<ion-header class="no-border">
+  <ion-toolbar class="myToolbar myHeader">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h4> {{productname}}</h4>  
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="5">
+          <ion-badge color="primary" class="product_availability"> {{productDetails?.stock_quantity}}متوفر</ion-badge>
+        </ion-col>
+        <ion-col size="4" style="padding-top: 0px;">
+          <span class="product_price"> {{productDetails?.price}} ر.س </span>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0"> {{notificationsNumber}} </ion-badge>
+      </ion-button> -->
+
+        <ion-button color="primary"  routerLink="/tabs/cart">
+          <ion-icon name="cart-outline" color="dark"></ion-icon>
+          <ion-badge color="primary" *ngIf="cartNumber>0">{{cartNumber}}</ion-badge>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="myContent">
+
+  <ion-slides loop="true" pager="true" speed="300"  dir="rtl"  [options]="slideOpts" >
+    <ion-slide *ngFor="let image of productDetails?.images">
+      <img [src]=" image?.src" onError="src = '../../../assets/icon/icon.png'">
+      <!-- <ion-img [src]="image?.src" alt="{{image.name}}" ></ion-img> -->
+     
+    </ion-slide>
+  </ion-slides>
+
+
+  <div class="productContent">
+
+    <ion-segment value="product" [(ngModel)]="type">
+      <ion-segment-button value="product">
+        <ion-label> المنتج  </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="description">
+        <ion-label> الوصف </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="comments">
+        <ion-label> التعليقات </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div *ngIf="type=='product'" class="product">
+        <p>  الماركه :  <span *ngFor="let brand of productDetails?.brands"> {{brand.name}} &nbsp;&nbsp;  </span> </p>
+        <p > {{productDetails?.weight}}  W </p>
+        <ion-row>
+          <ion-col size="2"> الكمية </ion-col>
+          <ion-col size="1"></ion-col>
+          <ion-col size="1" (click)="increaseQuantity()" >
+            <ion-icon name="add-circle" color="dark" class="increaseIcon"> </ion-icon>
+          </ion-col>
+          <ion-col size="1">
+           <span class="productQuantity">   {{productQuantity}} </span> 
+          </ion-col>
+          <ion-col size="1" (click)="decreaseQuantity()"> 
+            <ion-icon name="remove-circle" color="dark" class="decreaseIcon"> </ion-icon>
+          </ion-col>
+        </ion-row>
+    </div>
+    <div *ngIf="type=='description'" class="product">
+        <p id="productDesc" [innerHTML]="productDetails?.description">
+          </p>
+    </div>
+    <div *ngIf="type=='comments'">
+      <ion-row class="usercomment" *ngFor="let review of productReviews">
+        <ion-col size="3" >
+          <img class="userimage" src="../../../assets/images/user.png">
+        </ion-col>
+        <ion-col size="9" class="usercol" style="text-align: right;">
+          <p id="username"> {{review.reviewer}} </p>
+          <p id="comment" style="margin: -21px 0px;" [innerHTML]="review.review" >   </p>
+          
+          <p id="date"> {{review.date_created}} </p>
+        </ion-col>
+      </ion-row>  
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-row>
+    <ion-col size="2">
+      <ion-icon *ngIf="notFavourited" (click)="AddProductToWhishlist()" name="heart" class="ProductIcon" color="dark"></ion-icon>
+      <ion-icon *ngIf="!notFavourited" (click)="AddProductToWhishlist()" name="heart" class="ProductIcon" color="primary"></ion-icon>
+    
+    </ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col size="6">
+       <ion-button class="productbutton" color="primary" shape="round" expand="full" (click)="AddProductToCart()">
+         <span>  اضف للسلة </span>
+         <ion-icon slot="end" name="cart-outline" color="primary" class="buttonIcon"></ion-icon>
+       </ion-button>
+    </ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col size="2" (click)="ShareProduct()" >     
+      <ion-icon name="share-social" class="ProductIcon" color="dark"></ion-icon>
+     </ion-col>
+  </ion-row>
+</ion-footer>

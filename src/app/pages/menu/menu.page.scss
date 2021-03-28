@@ -1,0 +1,70 @@
+
+.MenuClose{
+    position: absolute;
+    bottom: 10px;
+}
+
+
+.MenuRow{
+    border-bottom: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+}
+
+
+ion-content{
+    --background: #e9262e ;
+}
+
+.menucolright{
+    padding: 0px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff2b;
+    border-left: 1px solid #ffffff2b;
+    p{
+        color: #ffffff;
+    }
+}
+
+.menucolleft{
+    padding: 0px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff2b;
+    p{
+        color: #ffffff;
+    }
+}
+
+.menucolrightLast{
+    padding: 0px;
+    text-align: center;
+    border-left: 1px solid #ffffff2b;
+    p{
+        color: #ffffff;
+    }
+}
+
+.menucolleftLast{
+    padding: 0px;
+    text-align: center;
+    p{
+        color: #ffffff;
+    }
+}
+img{
+    width: 20%;
+    margin-top: 14px;   
+}
+
+
+
+div{
+    text-align: center;
+    p{
+        color: #ffffff;
+    }
+}
+
+ion-icon{
+    font-size: 45px;
+    margin: 11px 43%;
+}

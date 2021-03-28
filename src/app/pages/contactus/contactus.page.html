@@ -1,0 +1,50 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar myHeader">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" >
+      <ion-button color="primary" routerLink="/tabs/cart">  
+        <ion-icon slot="icon-only" name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="primary">11</ion-badge>
+      </ion-button>
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0" >{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register_contact">
+
+
+<h1>  تواصل معنا</h1>
+  <form id="form" [formGroup]="myForm" (ngSubmit)="ContactUS()">
+
+    <ion-label position="stacked"> الاسم</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol">   
+      <ion-input type="text" placeholder="الاسم" formControlName="Name">
+      </ion-input>
+    </ion-item>
+
+    <ion-label position="stacked"> رقم الجوال</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="number" placeholder="رقم الجوال" formControlName="PhoneNumber">
+      </ion-input>
+    </ion-item>
+
+    
+    <ion-label position="stacked"> الرسالة</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol" style="height: auto;border-radius: 30px;"> 
+      <ion-textarea type="text" placeholder="رسالتك" rows="6" formControlName="PhoneNumber">
+      </ion-textarea>
+    </ion-item>
+
+
+    <ion-button [disabled]="!myForm.valid" shape="round"  expand="full" type="submit">ارسال الآن</ion-button>
+  
+  </form>
+</ion-content>

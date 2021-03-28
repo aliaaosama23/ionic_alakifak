@@ -1,0 +1,64 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar " >
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>  طلبك </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0">{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <ion-row style="background-color:#f9f9fb;">
+      <ion-col size="6" style="text-align: center;">
+         المنتج
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        المجموع
+     </ion-col>
+    </ion-row>
+  
+    <ion-row *ngFor="let product of OrderData.line_items" style="border-bottom:1px solid #80808082;border-top:1px solid #80808082; ">
+      <ion-col size="6" style="text-align: center;">
+         {{product.name}} <span style="color:gary">  {{product.quantity}} x</span>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+         {{product.price}} ر.س
+      </ion-col>
+   </ion-row>
+  
+    <ion-row >
+      <ion-col style="text-align:right;border-bottom:1px solid #80808082;" > 
+         وسيلة الدفع : <br>
+         {{OrderData?.payment_method_title}}
+      </ion-col>
+     
+    </ion-row>
+  
+    <ion-row >
+      <ion-col style="text-align:right;border-bottom:1px solid #80808082;">
+         الاجمالي : <br>
+         {{OrderData?.total}} ر.س 
+      </ion-col>
+     
+    </ion-row>
+  </div>
+
+  <div style="margin-top: 20%;margin-bottom: 20%; text-align: center" *ngIf="orderDone">
+    <ion-icon style="font-size: 100px;" color="danger"  name="checkmark-done"></ion-icon>
+  </div>
+  <ion-button style="margin: 13% 0px;" (click)="OrderCreation()" shape="round" *ngIf="!orderDone"  expand="full" color="primary">
+    تأكيد الطلب 
+  </ion-button>
+
+  <ion-button (click)="Home()" shape="round" *ngIf="orderDone"  expand="full" color="primary">
+   العودة للمنتجات
+  </ion-button>
+</ion-content>

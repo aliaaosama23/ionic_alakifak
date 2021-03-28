@@ -1,0 +1,75 @@
+.header-md::after {
+    display:  none !important;
+}   
+img{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 100%;
+    padding: 0px 20%;  
+}
+
+ion-label{
+    font-weight: bold;
+}
+
+
+.total{
+    text-align: center;
+    #price{
+        font-weight: bolder;
+        color: #e9262e ;
+        font-size: 29px;
+        margin-top: 0px;
+    }
+}
+
+#form {
+    margin: 0px !important;
+    .mycontrol {
+        border: 1px solid #d4d2d2;
+    }
+    ion-label{
+       color: #515C6F;
+    }
+
+    #notice{
+        font-size: 12px !important;
+        color: red;
+    }
+}
+
+.alert-radio-label.sc-ion-alert-md {
+    padding-left: 52px;
+    padding-right: 26px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    -ms-flex: 1;
+    flex: 1;
+    color: var(--ion-color-step-850, #262626);
+    font-size: 14px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.alert-radio-label.sc-ion-alert-ios {
+    padding-left: 52px;
+    padding-right: 26px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    -ms-flex: 1;
+    flex: 1;
+    color: var(--ion-color-step-850, #262626);
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+h1{
+    margin-top: 0px;
+}
+
+p{
+    margin-top: 0px;
+}

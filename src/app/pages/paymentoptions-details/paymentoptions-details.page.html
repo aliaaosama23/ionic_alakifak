@@ -1,0 +1,56 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar ">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary">11</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register">
+
+  <h1>  {{payment_option}} </h1>
+  <form id="form" [formGroup]="myForm" (ngSubmit)="Pay()">
+
+    <ion-label position="stacked"> رقم البطاقة</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="number" placeholder="رقم البطاقة" formControlName="VisaNumber">
+      </ion-input>
+    </ion-item>
+
+   <ion-row>
+     <ion-col size="6">
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="number" placeholder="YY" formControlName="Year">
+        </ion-input>
+      </ion-item>
+     </ion-col>
+     <ion-col size="6">
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="number" placeholder="MM" formControlName="Month">
+        </ion-input>
+      </ion-item>
+     </ion-col>
+   </ion-row>
+   
+   <ion-label position="stacked"> CVV</ion-label>
+
+    <ion-item class="ion-margin-bottom mycontrol">   
+      <ion-input type="number" placeholder="cvv" formControlName="CVV">
+      </ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!myForm.valid" shape="round"  expand="full" type="submit">
+      دفع الان 
+    </ion-button>
+  
+ 
+  </form>
+</ion-content>

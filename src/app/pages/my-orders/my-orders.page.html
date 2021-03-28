@@ -1,0 +1,55 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/tabs/cart">
+        <ion-icon slot="icon-only" name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="cartNumber>0">{{cartNumber}}</ion-badge>
+      </ion-button>
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0">{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding register ">
+
+  <h1>  طلباتي</h1>
+  <!-- *ngFor="let item of order.line_items" -->
+  <ion-item-sliding *ngFor="let order of Myorders" style="margin: 4px 0px; border: 0.1px solid #80808052;padding: 0px 4px;border-radius: 5px;">
+    <ion-item  detail (click)="OrderDetails(order.id)">
+      <ion-label> 
+        <p style="line-height:26px;white-space: normal;color:#e2001a"> #{{order.id}} </p>
+         
+        <p class="orderdate"> بتاريخ :  {{order.date_created}} </p>
+        
+        <h4> الإجمالي :   {{order.total}}  ر.س </h4>   
+      </ion-label>
+      <span class="orderStatus" *ngIf="order.status=='processing'"> 
+         قيد التنفيذ
+      </span>
+      <span class="orderStatus" *ngIf="order.status=='completed'"> 
+        مكتمل
+     </span>
+     
+     <span class="orderStatus" *ngIf="order.status=='pending'"> 
+      بإنتظار الدفع
+   </span>
+    </ion-item>
+    <ion-item-options side="start">
+      <ion-item-option (click)="deleteProduct(order.id)" expandable>
+        <ion-icon name="trash-outline" color="light"></ion-icon>          
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+ <div *ngIf="Myorders.length==0" style="text-align: center;font-size: 20px;margin-top: 20%;">
+    لا يوجد طلبات
+ </div>
+  </ion-content>
+  

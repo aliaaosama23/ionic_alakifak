@@ -1,0 +1,13 @@
+ion-title{
+    text-align: center;
+}
+
+.ProductCard{
+    position: relative;
+    .CartIcon{
+        top: 4px;
+        right: 4px;
+        position: absolute;
+        font-size: 20px;
+    }
+}

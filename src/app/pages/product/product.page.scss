@@ -1,0 +1,119 @@
+ion-title{
+    text-align: center;
+}
+
+.product_price{
+    color: #a9a9a4;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product_availability{
+    border-radius: 15px;
+    padding: 8px;
+    width: 100%;
+}
+
+h4{
+    color:  #515C6F;
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+
+.productContent{
+  background: #f5f5f3;
+}
+
+.ProductIcon{
+    font-size: 36px;
+}
+
+.buttonIcon{
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+    left: -14px;
+    position: absolute;
+}
+
+ion-col{
+    text-align: center;
+}
+
+.productbutton{
+ position: relative;
+ margin: 0px;
+}
+
+.product{
+    p{
+        border-bottom: 0.5px solid #8080807a;
+    }
+    .increaseIcon{
+        font-size: 26px;
+    }
+    .decreaseIcon{
+        font-size: 26px;
+    }
+}
+
+
+.product{
+    padding: 0px 11px;
+
+    #productDesc{
+        text-align: center;
+        font-size: 17px;
+        color: gray;
+        padding-bottom: 20%;
+        
+    }
+}
+
+ion-footer{
+    background: #f5f5f3;
+}
+
+
+.myContent{
+    --background: #f5f5f3;
+}
+
+p{
+    padding: 10px;
+}
+
+.productQuantity{
+    color: gray;
+    margin: 8px;
+}
+
+.usercomment{
+   
+    .userimage{
+        width: 78%;
+    }
+    .usercol{
+        text-align: right;
+    }
+  p{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #username{
+    color:#e9262e ;
+   
+    }
+    #comment{
+    color: gray;
+
+    }
+
+    #date{
+    color:#808080a6;
+
+    }
+}
+
+

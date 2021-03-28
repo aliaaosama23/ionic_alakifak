@@ -1,0 +1,78 @@
+<ion-header class="no-border myHeader">
+  <ion-toolbar class="myToolbar myHeader">
+    <ion-buttons slot="start">
+      <ion-button color="primary"  routerLink="/tabs/cart">
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="cartNumber>0">{{cartNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    <img id="headerLogo" src="../../../assets/images/1.png"  >
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications" >  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0">{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<div class="ion-padding" style="padding-bottom: 0px;">
+  <h1>  الأقسام </h1>
+
+  <ion-row class="categories">
+    <ion-col size="3" *ngFor="let item of CategoriesFristItems" (click)="CategoryProducts(item.id,item.name)">
+      <img style="width: 100%;" [src]="item.image?.src" onError="src = '../../../assets/icon/icon.png'">
+        <p style="    max-width: 100%;
+        overflow: hidden;
+        white-space: normal;
+        height: 55px;
+        margin-bottom: 0px;
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 15px;"> {{item.name}}</p>
+    </ion-col>
+    <ion-col size="3">
+      <ion-button color="light"  fill="clear"  routerLink="/all-categories">
+        <ion-icon name="chevron-forward-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+  
+<div id="home_content">
+
+  <div id="banners" >
+    <ion-slides loop="true" speed="300"  dir="rtl"  [options]="slideOpts" >
+      <ion-slide *ngFor="let image of Sliders" >
+        <img src="https://alakaifak.com/slider/{{image.image}}" >
+      </ion-slide>
+   </ion-slides>
+  </div>
+ 
+  <div class="latest_products">
+    
+  <h1 >  المضاف حديثا </h1>
+     <ion-row>
+       <ion-col size="4"  *ngFor="let product of AllProducts" >
+         <ion-card>
+           <ion-icon class="MyIcon" name="cart-outline" color="primary" (click)="addToCart(product)"></ion-icon>
+           <img  [src]="product?.images[0]?.src" (click)="ProductDetails(product.id,product?.name)" onError="src = '../../../assets/icon/icon.png'" >
+            <ion-card-content>
+               <p> {{product?.name}} </p>
+               <h4> {{product?.price}}  ر.س</h4>
+            </ion-card-content>
+         </ion-card>
+       </ion-col>
+     </ion-row>
+  </div>
+
+</div>
+
+  <ion-infinite-scroll threshold="5%" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="crescent"></ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+</ion-content>

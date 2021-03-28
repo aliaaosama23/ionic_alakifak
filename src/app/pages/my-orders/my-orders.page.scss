@@ -1,0 +1,97 @@
+.header-md::after {
+    display:  none !important;
+}   
+
+
+h1{
+    margin-top: 0px;
+}
+
+ion-item{
+    .item-native{
+        background: unset;
+    }
+    --background	:unset !important;
+
+    ::slotted(ion-avatar){
+        height: auto;
+        width: 100%;
+    }
+}
+
+ion-icon{
+    font-size: 30px;
+}
+
+.orderdate{
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: 300;
+    margin-top: 6px;
+}
+
+#deleteImage{
+    position: absolute;
+    width: 20%;
+}
+
+.myContent{
+    position: relative;
+    right: 0px;
+}
+
+ion-item{
+    img{
+        margin-top: 2%;
+        margin-bottom: 5%;
+        width: 100%;
+        //padding: 0px 20%;  
+    }
+}
+
+.imageContainer{
+    width:30px;
+    height:auto;
+    background-color: #e2001a;
+    position: relative;
+    float: right;
+}
+
+ion-item-option{
+    --background: #e2001a;
+    border-radius: 20px 0px 0px 20px;
+}
+
+ion-item-sliding{
+    ion-item{
+        ion-label{
+            position: relative;
+        }
+    }
+    
+}
+.orderStatus{
+    color:black;
+   position: absolute;
+   top: 4px;
+   left:0px;
+}
+.orderStatus_accepted{
+    color:green;
+   position: absolute;
+   top: 4px;
+   left:0px;
+}
+
+.orderStatus_refused{
+    color:red;
+    position: absolute;
+    top: 4px;
+    left:0px;
+ }
+
+ ion-item{
+    --inner-padding-start	:0px;
+    --inner-padding-end	:0px;
+    --padding-start	:0px;
+ }

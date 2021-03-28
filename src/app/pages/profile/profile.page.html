@@ -1,0 +1,184 @@
+<ion-header class="no-border">
+  <ion-toolbar class="myToolbar myHeaderProfile">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/tabs/cart">
+        <ion-icon slot="icon-only" name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="cartNumber>0"> {{cartNumber}} </ion-badge>
+      </ion-button>
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0">{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal register" *ngIf="IsLogined">
+
+
+    <h1> تفاصيل حسابي </h1>
+
+    <form id="form" [formGroup]="myForm" (ngSubmit)="UpdateAccount()">
+  
+      <!-- <ion-label position="stacked">اسم العرض</ion-label> -->
+      
+      <ion-item class="ion-margin-bottom mycontrol"> 
+        <ion-input type="text" placeholder="اسم العرض" formControlName="Name" [value]="Name">
+        </ion-input>
+      </ion-item>
+  
+      <!-- <ion-label position="stacked"> البريد الالكتروني</ion-label> -->
+      <ion-item class="ion-margin-bottom mycontrol"> 
+        <ion-input type="email" placeholder=" البريد الالكتروني" formControlName="Email" [value]="Email">
+        </ion-input>
+      </ion-item>
+  
+      <!-- <ion-label position="stacked"> كلمة المرور</ion-label> -->
+      
+      <ion-item class="ion-margin-bottom mycontrol passwordcontrol">   
+        <ion-input type="password" placeholder="كلمة المرور" formControlName="Password" [value]="Password">
+        </ion-input>
+        <img src="../../../assets/images/81.png" class="editIcon" (click)="EditPassword()">
+   
+      </ion-item>
+      
+      <h1>  عنوان الدفع</h1>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاول" formControlName="billing_fristname" [value]="billing_fName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاخير" formControlName="billing_lastname" [value]="billing_lName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="email" placeholder="البريد الالكتروني" formControlName="billing_Email" [value]="billing_Email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="tel" placeholder="الجوال" formControlName="billing_phone" [value]="billing_phone">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="العنوان" formControlName="billing_Address" [value]="billing_Address">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المدينة" formControlName="billing_city" [value]="billing_city">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-select interface="popover" type="text" placeholder="الدولة"[value]="billing_country"  formControlName="billing_country" cancelText="إلغاء" okText="تم">
+          <ion-select-option value= "SA" >المملكة العربية السعودية  </ion-select-option> 
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المنطقة" formControlName="billing_region" [value]="billing_region">
+        </ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الرمز البريدي" formControlName="billing_postcode" [value]="billing_postalcode">
+        </ion-input>
+      </ion-item>
+    
+           
+      <h1>  عنوان الشحن</h1>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاول" formControlName="shipping_fristname" [value]="shipping_fName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاخير" formControlName="shipping_lastname" [value]="shipping_lName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="العنوان" formControlName="shipping_Address" [value]="shipping_Address">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المدينة" formControlName="shipping_city" [value]="shipping_city">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-select interface="popover" type="text" placeholder="الدولة"[value]="shipping_country"  formControlName="shipping_country" cancelText="إلغاء" okText="تم">
+          <ion-select-option value= "SA" >المملكة العربية السعودية  </ion-select-option> 
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المنطقة" formControlName="shipping_region" [value]="shipping_region">
+        </ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الرمز البريدي" formControlName="shipping_postcode" [value]="shipping_postalcode">
+        </ion-input>
+      </ion-item>
+
+      <ion-button style="margin: 16px;" [disabled]="!myForm.valid" shape="round"  expand="full" type="submit">تحديث </ion-button>
+      
+    </form>
+
+</ion-content>
+  <ion-content class="ion-padding register" *ngIf="!IsLogined">
+    <img src="../../../assets/images/logo1.png">
+
+    <h1>  تسجيل الدخول </h1>
+      <form id="form" [formGroup]="LoginForm" (ngSubmit)="Login()">
+    
+        <ion-label position="stacked">  الاسم </ion-label>
+        <ion-item class="ion-margin-bottom mycontrol"> 
+          <ion-input type="text" placeholder="الاسم" formControlName="Name">
+          </ion-input>
+        </ion-item>
+    
+        <ion-label position="stacked"> كلمة المرور</ion-label>
+        <ion-item class="ion-margin-bottom mycontrol">   
+          <ion-input type="password" placeholder="كلمة المرور" formControlName="Password">
+          </ion-input>
+        </ion-item>
+    
+        <ion-row>
+          
+          <ion-col size="4">
+            <ion-item class="ion-no-padding myitem">
+              <ion-label>تذكرني</ion-label>
+              <ion-checkbox  (ionChange)="RememberMe()" slot="start" color="dark"> </ion-checkbox>
+            </ion-item>   
+          </ion-col>
+    
+          <ion-col size="5" offset="3">
+              <h4 (click)="goPage('forget-password')">  نسيت كلمة المرور </h4>  
+          </ion-col>
+    
+        </ion-row>
+    
+        <ion-button [disabled]="!LoginForm.valid" shape="round"  expand="full" type="submit">تسجيل الدخول </ion-button>
+      
+        <div>     
+           <h2 (click)="goPage('signup')">  تسجيل جديد </h2>  
+        </div>
+        
+      </form>
+  </ion-content>
+   
+ 

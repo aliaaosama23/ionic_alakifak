@@ -1,0 +1,27 @@
+
+<ion-toolbar>
+  <ion-searchbar color="light" debounce="500" (ionChange)="search($event)" placeholder="اكتب كلمة البحث ..."> </ion-searchbar>
+
+</ion-toolbar>
+<ion-content>
+
+  <!-- <ion-searchbar [(ngModel)]="searchword" placeholder="اكتب كلمة البحث ..."> </ion-searchbar> -->
+
+
+  <!-- <ion-button expand="full" style="margin: 0% 30%;border-radius: 10px;" shape="round" (click)="search()" color="primary"> ابحث </ion-button> -->
+
+
+
+  <ion-row >
+    <ion-col size="6"  *ngFor="let product of searchResults" >
+      <ion-card class="ProductCard">
+        <ion-icon style="margin-top: 10px;margin-right: 10px;font-size: 20px;"class="CartIcon" name="cart-outline" color="primary" (click)="addToCart(product)"></ion-icon>
+        <img [src]="product.images[0].src" (click)="ProductDetails(product.id,product.name)" onError="src = '../../../assets/icon/icon.png'">
+         <ion-card-content>
+            <p> {{product.name}} </p>
+            <h4> {{product.price}}  ر.س</h4>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

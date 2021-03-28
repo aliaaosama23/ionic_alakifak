@@ -1,0 +1,50 @@
+<ion-header class="no-border">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   <ion-title> #{{OrdertId}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div style="margin: 14% 0%;">
+    <ion-row style="background-color:#f9f9fb;">
+      <ion-col size="6" style="text-align: center;">
+         المنتج
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        المجموع
+     </ion-col>
+    </ion-row>
+  
+    <ion-row *ngFor="let product of OrderProducts" style="border-bottom:1px solid #80808082;border-top:1px solid #80808082; ">
+      <ion-col size="6" style="text-align: center;">
+         {{product.name}} <span style="color:gary"> x {{product.quantity}} </span>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+         {{product.total}}
+      </ion-col>
+   </ion-row>
+  
+    <ion-row >
+      <ion-col style="text-align:right;border-bottom:1px solid #80808082;" > 
+         وسيلة الدفع : <br>
+         {{OrderDetails?.payment_method_title}}
+      </ion-col>
+     
+    </ion-row>
+  
+    <ion-row >
+      <ion-col style="text-align:right;border-bottom:1px solid #80808082;">
+         الاجمالي : <br>
+         {{OrderDetails?.total}}
+      </ion-col>
+     
+    </ion-row>
+  </div>
+
+</ion-content>

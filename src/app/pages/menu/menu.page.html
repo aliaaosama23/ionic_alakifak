@@ -1,0 +1,60 @@
+
+
+<ion-content class="Menu" >
+
+  <div>
+    <p>  القائمة </p>
+  </div>
+
+  <ion-row >
+    <ion-col size="6" class="menucolright" (click)="AboutPage('/aboutus',1)">
+      <img src="../../../assets/images/about.png">
+      <p>  حول التطبيق </p>
+    </ion-col>
+    <ion-col size="6" class="menucolleft" (click)="AboutPage('/aboutus',2)">
+      <img src="../../../assets/images/terms.png">
+      <p> سياسة التطبيق </p>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col size="6" class="menucolright" (click)="AboutPage('/aboutus',3)">
+      <img src="../../../assets/images/shrot.png">
+      <p>  الشروط والأحكام</p>
+    </ion-col>
+    <ion-col size="6" class="menucolleft" (click)="ReviewApp()">
+      <img src="../../../assets/images/rate.png">
+      <p> قيم التطبيق </p>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col size="6" class="menucolright" (click)="ShareApp()">
+      <img src="../../../assets/images/share.png">
+      <p>  شارك التطبيق</p>
+    </ion-col>
+    <ion-col size="6" class="menucolleft" (click)="goPage('/favourite')">
+      <img src="../../../assets/images/feather-heart.png">
+      <p> المفضلة</p>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col *ngIf="isLogined" size="6" class="menucolrightLast" (click)="goPage('/my-orders')">
+      <img src="../../../assets/images/orders.png">
+      <p > طلباتي </p>
+    </ion-col>
+    <ion-col *ngIf="!isLogined" size="6" class="menucolrightLast" (click)="goPage('/signup')">
+      <img src="../../../assets/images/profile.png">
+      <p > تسجيل جديد </p>
+    </ion-col>
+
+    <ion-col *ngIf="isLogined" size="6" class="menucolleftLast" (click)="Logout()">
+      <img src="../../../assets/images/profile.png">
+      <p > تسجيل خروج </p>
+    </ion-col>
+    <ion-col *ngIf="!isLogined" size="6" class="menucolleftLast" (click)="goPage('/login')">
+      <img src="../../../assets/images/profile.png">
+      <p > تسجيل دخول </p>
+    </ion-col>
+  </ion-row>
+
+  <ion-icon (click)="dismiss()" name="close-circle-outline" color="secondary" ></ion-icon>
+</ion-content>

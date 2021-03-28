@@ -1,0 +1,41 @@
+<ion-header class="no-border">
+  <ion-toolbar class="myToolbar myHeader">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h4> {{CategoryName}}</h4>  
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0" >{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home">
+    <ion-row *ngIf="!NoProducts">
+      <ion-col size="6"  *ngFor="let product of CategoryProducts" >
+        <ion-card class="ProductCard">
+          <ion-icon class="CartIcon" name="cart-outline" color="primary" (click)="addToCart(product)"></ion-icon>
+          <img [src]="product?.images[0]?.src" (click)="ProductDetails(product.id,product.name)" onError="src = '../../../assets/icon/icon.png'">
+           <ion-card-content>
+              <p> {{product.name}} </p>
+              <h4> {{product.price}}  ر.س</h4>
+           </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="NoProducts" style="margin-top: 30%;font-size: 20px;text-align: center;">
+             <h3>  لا يوجد منتجات لهذا القسم </h3>
+    </div>
+
+    <ion-infinite-scroll threshold="5%" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="crescent"></ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+</ion-content>

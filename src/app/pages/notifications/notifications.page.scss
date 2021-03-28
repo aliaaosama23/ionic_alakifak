@@ -1,0 +1,41 @@
+.myContent{
+    --background:#f9f9fb;
+}
+
+.container_content{
+    background: #ffffff;
+    height: auto;
+    position: relative;
+    margin-bottom: 30px;
+    img{
+        position: absolute;
+        right: 5px;
+        bottom: 48%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .message{
+        color: #e9262e;
+        font-size: 15px;
+        margin-bottom: 0px;
+        white-space: normal;
+        margin-right: 53px;
+        margin-top: 7px;
+        text-align: right;
+    }
+    .date{
+        color: gray;
+        font-size: 13px;
+        margin-top: 5px;
+        font-weight: 300;
+        text-align: right;
+        margin-right: 53px;
+    }
+}
+
+
+.myTitle{
+    margin-bottom: 45px;
+    margin-top: 0px;
+}

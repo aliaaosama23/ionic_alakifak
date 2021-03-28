@@ -1,0 +1,7 @@
+{
+  "name": "myalakifakapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

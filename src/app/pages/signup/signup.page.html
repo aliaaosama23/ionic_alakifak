@@ -1,0 +1,92 @@
+<ion-header class="no-border">
+  <ion-toolbar class="register_toolbar">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0">{{notificationsNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register">
+
+<img src="../../../assets/images/logo1.png">
+
+<h1>  التسجيل </h1>
+  <form id="form" [formGroup]="myForm" (ngSubmit)="SignUp()">
+
+    <!-- <ion-label position="stacked"> الاسم الأول</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="text" placeholder="الاسم الاول" formControlName="F_Name">
+      </ion-input>
+    </ion-item>
+
+    <ion-label position="stacked"> الاسم الأخير</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="text" placeholder="الاسم الاخير" formControlName="L_Name">
+      </ion-input>
+    </ion-item> -->
+
+    <ion-label position="stacked"> اسم المستخدم</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="text" placeholder="اسم المستخدم" formControlName="username">
+      </ion-input>
+    </ion-item>
+
+    <!-- <ion-label position="stacked"> رقم الجوال</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="text" placeholder="رقم الجوال" formControlName="Phone">
+      </ion-input>
+    </ion-item> -->
+
+    <ion-label position="stacked"> البريد الالكتروني</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="email" placeholder="البريد الالكتروني" formControlName="Email">
+      </ion-input>
+    </ion-item>
+
+    <!-- <ion-label position="stacked"> العنوان</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol"> 
+      <ion-input type="text" placeholder="العنوان" formControlName="Address1">
+      </ion-input>
+    </ion-item> -->
+
+   
+    <p  style="font-size: 13px;" > 
+      سيتم إرسال كلمة المرور إلي عنوان بريدك الاكتروني
+    </p>
+    <!-- <ion-label position="stacked"> كلمة المرور</ion-label>
+    <ion-item class="ion-margin-bottom mycontrol">   
+      <ion-input type="password" placeholder="كلمة المرور" formControlName="Password">
+      </ion-input>
+    </ion-item>
+
+    <ion-label position="stacked">  تأكيد كلمة المرور </ion-label>
+    <ion-item class="ion-margin-bottom mycontrol">   
+      <ion-input type="password" placeholder="تأكيد كلمة المرور" formControlName="ConfirmPassword">
+      </ion-input>
+    </ion-item> -->
+
+    
+    <!-- <ion-item  color="danger"> -->
+      <!-- <p  style="color: red; " *ngIf="(myForm.value.Password != myForm.value.ConfirmPassword) && myForm.valid"> 
+           كلمتا المرور غير متطابقتين
+      </p> -->
+    <!-- </ion-item> 
+    || (myForm.value.Password != myForm.value.ConfirmPassword)
+    -->
+ 
+    <ion-button [disabled]="!myForm.valid " shape="round"  expand="full" type="submit">تسجيل الآن </ion-button>
+  
+    <div>     
+       <h2 (click)="goPage('login')">  تسجيل الدخول </h2>  
+    </div>
+    
+  </form>
+</ion-content>

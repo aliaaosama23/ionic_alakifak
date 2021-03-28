@@ -1,0 +1,124 @@
+<ion-header class="no-border">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">  الدفع </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/notifications">  
+        <ion-icon slot="icon-only" name="notifications-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="notificationsNumber>0"> {{notificationsNumber}} </ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register">
+    <form [formGroup]="myForm" >
+
+      <ion-label position="stacked"> عنوان الدفع</ion-label>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاول" formControlName="fristname" [value]="fName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاخير" formControlName="lastname" [value]="lName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="email" placeholder="البريد الالكتروني" formControlName="email" [value]="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="tel" placeholder="الجوال" formControlName="phone" [value]="phone">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="العنوان" formControlName="address1" [value]="address1">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المدينة" formControlName="city" [value]="city">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-select interface="popover" type="text" placeholder="الدولة"[value]="country"  formControlName="country" cancelText="إلغاء" okText="تم">
+          <ion-select-option value= "SA" >المملكة العربية السعودية  </ion-select-option> 
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المنطقة" formControlName="region" [value]="region">
+        </ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الرمز البريدي" formControlName="postcode" [value]="postalcode">
+        </ion-input>
+      </ion-item>
+    
+      <ion-button (click)="Contiue()" [disabled]="!myForm.valid" *ngIf="!shippingnotasbilling" shape="round"  expand="full"   >
+       متابعة  
+      </ion-button>
+
+    </form>
+
+    <ion-item class="ion-no-padding myitem">
+      <ion-checkbox color="danger" (ionChange)="checked()"slot="start" color="dark"  [(ngModel)]="shippingnotasbilling"></ion-checkbox>
+      <ion-label style="margin: 0px 9px;"> الشحن لعنوان مختلف </ion-label>
+    </ion-item>
+    <form [formGroup]="myForm1" *ngIf="shippingnotasbilling">
+
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاول" formControlName="fristname">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الاسم الاخير" formControlName="lastname">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="العنوان" formControlName="address1">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المدينة" formControlName="city">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-select interface="popover" type="text" placeholder="الدولة" formControlName="country" cancelText="إلغاء" okText="تم">
+          <ion-select-option value= "SA" >المملكة العربية السعودية  </ion-select-option> 
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="المنطقة" formControlName="region">
+        </ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom mycontrol">   
+        <ion-input type="text" placeholder="الرمز البريدي" formControlName="postcode">
+        </ion-input>
+      </ion-item>
+    
+      <ion-button (click)="Contiue()" [disabled]="!myForm1.valid && !myForm.valid"  shape="round"  expand="full" >
+       متابعة  
+      </ion-button>
+
+    </form>
+
+</ion-content>

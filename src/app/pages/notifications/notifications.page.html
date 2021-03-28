@@ -1,0 +1,50 @@
+<ion-header class="no-border ">
+  <ion-toolbar class="myToolbar myHeaderProfile">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="Back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/tabs/cart">
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+        <ion-badge color="primary" *ngIf="cartNumber>0">{{cartNumber}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding myContent">
+
+  <h1 class="myTitle">  الاشعارات </h1>
+
+    <!-- <div class="container_content">
+      <img src="../../../assets/images/happy.png">
+      <p class="message"> تم التسجيل بنجاح </p>
+      <p class="date"> 12/05/2020</p>
+    </div>
+
+    <div class="container_content">
+      <img src="../../../assets/images/order.png">
+      <p class="message"> طلبك قيد المراجعة </p>
+      <p class="date"> 12/05/2020</p>
+    </div>
+
+    <div class="container_content">
+      <img src="../../../assets/images/happy.png">
+      <p class="message"> تمت الموافقة علي طلبك </p>
+      <p class="date"> 12/05/2020</p>
+    </div>
+
+    <div class="container_content">
+      <img src="../../../assets/images/unhappy.png">
+      <p class="message"> تم رفض الطلب لعدم تحديد مكان التوصيل الصحيح </p>
+      <p class="date"> 12/05/2020</p>
+    </div> -->
+
+    <div *ngIf="Notifications.length==0" style="text-align: center;font-size: 17px;margin-top: 20%;">
+      لا يوجد إشعارات
+
+    </div>
+
+</ion-content>

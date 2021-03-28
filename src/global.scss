@@ -1,0 +1,430 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+// @font-face {
+//     font-family: 'My Custom Font';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: url('./assets/fonts/Cairo-Regular.ttf');
+//   }
+.alert-radio-label.sc-ion-alert-md {
+    padding-left: 52px;
+    padding-right: 26px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    -ms-flex: 1;
+    flex: 1;
+    color: var(--ion-color-step-850, #262626);
+    font-size: 14px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.alert-radio-label.sc-ion-alert-ios {
+    padding-left: 52px;
+    padding-right: 26px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    -ms-flex: 1;
+    flex: 1;
+    color: var(--ion-color-step-850, #262626);
+    font-size: 14px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+ion-select{
+    width: 100%;
+}
+
+  @font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: bold;
+    src: url('./assets/fonts/Cairo-Regular.ttf');
+  }
+
+  *{
+    font-family: 'Cairo' !important;
+  }
+
+  h1, h2, h4, h3, h5, h6, p, a, span, div,ion-label {
+    font-family: 'Cairo' !important;
+  }
+
+.item-inner{
+    border-bottom: unset !important;
+    flex: 1 -1 0% !important;
+}
+input.native-input.sc-ion-input-md{
+    color:gray;
+}
+input.native-input.sc-ion-input-ios{
+    color:gray;
+}
+.myToolbar{
+    --background: #ffffff;
+    ion-button{
+        text-transform: initial;
+        font-size: 17px;
+        ion-badge {
+            position: absolute;
+            top: 1rem;
+            box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.08);
+            right: 0.5rem;
+            opacity: 0.9;
+            font-size: 8px;
+    
+            & ~ ion-icon {
+                margin-right: 1.2rem;
+                color: #848d9c;
+            }
+        }
+    }
+}
+input.native-input.sc-ion-input-md{
+    padding: 0px;
+}
+input.native-input.sc-ion-input-ios{
+    padding: 0px;
+}
+.mycontrol{
+    border-radius: 50px;
+    height: 50px;
+    --highlight-height:0px;
+    border: 1px solid gray;
+    margin-top: 10px;
+
+    ion-input{
+        font-size: 18px;
+        --padding-top:12px;
+        --padding-bottom:15px;
+        --padding-start:5px;
+    }   
+}
+
+.myitem{
+    ion-label{
+        overflow: initial;
+    }
+
+    #password{
+        font-weight: bold;
+        font-size: 15px;
+    }
+    ion-checkbox{
+        margin: 0px 0px 0px 4px;
+    }
+    --background:#f9f9fb;
+    --border-color	:transparent;
+    --inner-padding-start	:unset !important;
+    .item-native{
+        --padding-inline-start:0px !important;
+    }
+}
+
+.register{
+    h4{
+        color:  #000000;
+        font-weight: bold !important;
+        font-size: 16px;   
+    }
+    --background:#f9f9fb;
+    #header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    h1{
+      color:  #515C6F;
+      font-size: 27px;
+    }
+    
+    div{
+        text-align: center;
+        h2{
+            color:  #515C6F;
+            font-size: 23px;
+        }
+    }
+    
+    .myitem{
+        --inner-padding-start	:0px;
+        --background-activated-opacity:0;
+        --background-focused:transparent;
+    }
+
+    p{
+        font-size: 17px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+}
+
+
+
+#form{
+    //margin-top: 15%;
+    ion-button{
+        height: 48px;
+        margin-top: 35px;
+        font-size: 16px;
+        text-transform: initial;
+        border-radius: 50px;
+        box-shadow: 1px 8px 8px 0px rgba(0,0,0,0.15);
+        --box-shadow:none;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+
+::-webkit-scrollbar, *::-webkit-scrollbar { display: none; }
+
+// ion-checkbox {
+//     background: #879dac;
+//     --border-radius: 0px;
+//     --checkmark-color: #000000;
+//   --background-checked: #879dac;
+//   --border-color: #879dac;
+//   --border-color-checked: #879dac;
+// }
+
+ion-checkbox {
+    background: #e2001a;
+    --border-radius: 0px;
+    --checkmark-color: #fff;
+    --background-checked: #e2001a;
+    --border-color: #e2001a;
+    --border-color-checked: #e2001a;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+//login register
+.register_toolbar{
+    --background:#f9f9fb;
+
+    ion-button{
+        text-transform: initial;
+        font-size: 17px;
+        ion-badge {
+            position: absolute;
+            top: 1rem;
+            box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.08);
+            right: 0.5rem;
+            opacity: 0.9;
+            font-size: 8px;
+    
+            & ~ ion-icon {
+                margin-right: 1.2rem;
+                color: #848d9c;
+            }
+        }
+    }
+}
+
+// home
+.myHeader{
+    --background: #ffffff;
+    #headerLogo{
+        margin: 0 25%;
+    }
+}
+.header-md::after{
+    background-image: none;
+}
+
+#home_content{
+    background: #f5f5f3;
+}
+
+.latest_products{
+
+    background-color: #e6e5e5;
+    ion-card{
+        --background:#ffffff;
+        position: relative;
+        border-radius: 12px;
+        margin: 0px;
+        ion-card-content{
+            padding: 7px;
+
+            h4{
+                color: black;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            p{
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .MyIcon{
+        position: absolute;
+        top:10px;
+        right: 10px;
+        font-size: 22px;
+      }
+
+}
+
+    .home{
+        h1{
+            font-size: 30px;
+            color: #6d6d6b;
+            font-weight: bold;
+            margin-top: 6px;
+            padding: 0px 16px;
+        }
+        ion-row{
+            ion-col{
+                div{
+                    text-align: center;
+                }
+                p{
+                    // margin-inline-start: 20%;
+                    color:#40403e;
+                }
+                ion-button{
+                    height: 72px;
+                    width: 72px;
+                    border-radius: 50%;
+                    background-color:#ffffff;
+                    --box-shadow: 1px 4px 4px 1px rgba(0,0,0,0.08);
+                }
+            }
+        }
+        #banners{
+            padding-top: 3px;
+        }
+    }
+
+    // profile
+    .myHeaderProfile{
+        --background:#f9f9fb;
+    }
+
+    .editIcon{
+     // position: absolute;
+      top: 10px;
+      left: 15px;
+      max-width: 9%;
+    }
+
+    .passwordcontrol{
+     position: relative;
+    }
+
+     // tabs
+     .MyTabBar{
+        box-shadow: 0px 0 15px rgba(0, 0, 0, 0.4);
+     }
+
+     // product
+     .footer-md::before{
+        background-image: unset;
+     }
+     .footer-ios::before{
+        background-image: unset;
+     }
+    
+
+
+     .header-ios ion-toolbar:last-of-type{
+        --border-width: 0 !important;
+     }
+
+     ion-segment{
+        //--background	:unset ;
+     }
+
+     ion-segment-button{
+        --border-width	:0;
+        --border-color	:unset;
+        --indicator-box-shadow	:unset;
+     }
+
+     .my-custom-class{
+        --background:	#e9262e ;
+     }
+
+     // contact us
+     .sc-ion-textarea-md-h{
+         padding: 0px;
+     }
+
+     .register_contact{
+        h4{
+            color:  #000000;
+            font-weight: bold !important;
+            font-size: 16px;   
+        }
+        --background:#ffffff;
+        #header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1{
+          color:  #515C6F;
+          font-size: 27px;
+        }
+        
+        div{
+            text-align: right;
+            h2{
+                color:  #515C6F;
+                font-size: 23px;
+            }
+        }
+        
+        .myitem{
+            --inner-padding-start	:0px;
+            --background-activated-opacity:0;
+            --background-focused:transparent;
+        }
+    
+        p{
+            font-size: 17px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+    }
+
+
+    .my-result-class{
+        --background:	#f9f9fb;
+     }
